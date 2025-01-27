@@ -1,10 +1,10 @@
-# Hi I Am **Sarthak**
+# Hi I Am **Sarthak**🚀🚀🚀🚀🚀🚀
 
 # WordPress Deployment with LEMP Stack on AWS EC2 (CI/CD with GitHub Actions)  
 
 This project automates WordPress deployment on an **AWS EC2 Ubuntu 22.04** instance using the **LEMP stack** (Linux, Nginx, MySQL, PHP) with **CI/CD via GitHub Actions**. It includes security, SSL/TLS setup, and performance optimization.  
 
-## **Project Overview**  
+## **Project Overview**  🚀
 
 - **Stack:** LEMP (Linux, Nginx, MySQL, PHP)  
 - **Provisioning:** AWS EC2 instance (Ubuntu 22.04)  
@@ -15,7 +15,7 @@ This project automates WordPress deployment on an **AWS EC2 Ubuntu 22.04** insta
 - **Automated** Using Github Workflow Deploy.Yaml
 ---
 
-## **1. Provision AWS EC2 Instance**  
+## **1. Provision AWS EC2 Instance**  🚀
 
 ### **Step 1: Create an EC2 Instance**  
 I launched an **Ubuntu 22.04** EC2 instance.  
@@ -24,14 +24,14 @@ Configured **security groups** to:
 - Allow **HTTP (80)** and **HTTPS (443)**.  
 - Attached an **Elastic IP** for better accessibility.  
 
-### **Step 2: Connect to EC2 via SSH**  
+### **Step 2: Connect to EC2 via SSH**  🚀
 ```bash
 ssh -i "My-private-key.pem" ubuntu@54.87.64.225
 ```  
 
 ---
 
-## **2. Install and Configure LEMP Stack**  
+## **2. Install and Configure LEMP Stack**  🚀
 
 ### **Step 3: Install Nginx**  
 ```bash
@@ -47,7 +47,7 @@ sudo apt install mysql-server -y
 sudo mysql_secure_installation
 ```
 
-### **Step 5: Create a MySQL Database for WordPress**  
+### **Step 5: Create a MySQL Database for WordPress**  🚀
 ```bash
 sudo mysql -u root -p
 ```
@@ -59,7 +59,7 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-### **Step 6: Install PHP and Required Extensions**  
+### **Step 6: Install PHP and Required Extensions**  🚀
 ```bash
 sudo apt install php-fpm php-mysql php-cli php-curl php-gd php-mbstring php-xml php-xmlrpc -y
 sudo systemctl enable php-fpm
@@ -70,7 +70,7 @@ sudo systemctl start php-fpm
 
 ## **3. Install and Configure WordPress**  
 
-### **Step 7: Download and Set Up WordPress**  
+### **Step 7: Download and Set Up WordPress**  🚀
 ```bash
 cd /var/www/html
 sudo wget https://wordpress.org/latest.tar.gz
@@ -81,7 +81,7 @@ sudo chown -R www-data:www-data /var/www/html
 sudo chmod -R 755 /var/www/html
 ```
 
-### **Step 8: Configure WordPress Database Connection**  
+### **Step 8: Configure WordPress Database Connection**  🚀
 ```bash
 cp wp-config-sample.php wp-config.php
 sudo nano wp-config.php
@@ -96,7 +96,7 @@ define('DB_HOST', '127.0.0.1');
 
 ---
 
-## **4. Secure and Optimize the Server**  
+## **4. Secure and Optimize the Server**  🚀
 
 ### **Step 9: Set Up a Firewall**  
 ```bash
@@ -105,14 +105,14 @@ sudo ufw allow 'Nginx Full'
 sudo ufw enable
 ```
 
-### **Step 10: Install SSL/TLS with Let’s Encrypt**  
+### **Step 10: Install SSL/TLS with Let’s Encrypt**  🚀
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
 sudo certbot --nginx -d sarutiwaskar.myddns.me
 sudo certbot renew --dry-run
 ```
 
-### **Step 11: Enable Gzip Compression and Caching in Nginx**  
+### **Step 11: Enable Gzip Compression and Caching in Nginx**  🚀
 ```bash
 sudo nano /etc/nginx/nginx.conf
 ```
@@ -128,7 +128,7 @@ sudo systemctl restart nginx
 
 ---
 
-## **5. Automate Deployment with GitHub Actions (CI/CD)**  
+## **5. Automate Deployment with GitHub Actions (CI/CD)**  🚀
 
 ### **Step 12: Set Up GitHub Repository**  
 ```bash
@@ -139,7 +139,7 @@ git commit -m "Initial commit"
 git push -u origin main
 ```
 
-### **Step 13: Generate SSH Key for Deployment**  
+### **Step 13: Generate SSH Key for Deployment**  🚀
 ```bash
 ssh-keygen -t rsa -b 4096 -C "github-deploy-key"
 cat ~/.ssh/id_rsa.pub
@@ -155,7 +155,7 @@ The workflow:
 - Pulls the latest code from GitHub.  
 - Restarts Nginx and PHP for the changes to take effect.  
 
-### **Step 15: Manually Deploy Changes from GitHub**  
+### **Step 15: Manually Deploy Changes from GitHub**  🚀
 ```bash
 ssh -i "your-private-key.pem" ubuntu@54.87.64.225
 cd /var/www/html
@@ -165,7 +165,7 @@ sudo systemctl restart nginx php-fpm
 
 ---
 
-## **6. Finalize WordPress Installation**  
+## **6. Finalize WordPress Installation**  🚀
 1. Open `http://sarutiwaskar.myddns.me` in a browser.  
 2. Follow the on-screen setup wizard.  
 3. Used the database details configured earlier.  
@@ -173,7 +173,7 @@ sudo systemctl restart nginx php-fpm
 
 ---
 
-## **7. Security & Performance Enhancements**  
+## **7. Security & Performance Enhancements**  🚀
 
 ### **Step 16: Secure SSH Access**  
 ```bash
@@ -186,7 +186,7 @@ Restarted SSH:
 sudo systemctl restart ssh
 ```
 
-### **Step 17: Enable Auto-Restart for Services**  
+### **Step 17: Enable Auto-Restart for Services**  🚀
 ```bash
 sudo systemctl enable nginx
 sudo systemctl enable php-fpm
@@ -208,6 +208,5 @@ This setup ensures:
 ✅ **Automation** – CI/CD workflow for auto-deployments  
 ✅ **Optimization** – Nginx caching, gzip compression, and MySQL tuning  
 
----
 
-This **README** now reflects a fully completed setup without monitoring and backup steps, showing that the deployment has been successfully completed. Let me know if you need further adjustments! 🚀
+ 🚀
