@@ -13,23 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Add SSH Known Hosts
+      - name: Set Up SSH Key
         run: |
           mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H sarutiwaskar.myddns.me >> ~/.ssh/known_hosts
           chmod 644 ~/.ssh/known_hosts
 
       - name: Debug SSH Connection
-        uses: appleboy/ssh-action@v0.1.3
-        with:
-          host: sarutiwaskar.myddns.me
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            echo "SSH connection successful!"
-            hostname
-            whoami
-        continue-on-error: true  # Prevents breaking the workflow if SSH fails
+        run: |
+          ssh -i ~/.ssh/id_rsa ubuntu@sarutiwaskar.myddns.me "echo '✅ SSH connection successful!' && hostname && whoami"
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v0.1.3
