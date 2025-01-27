@@ -16,12 +16,15 @@ jobs:
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v0.1.3
         with:
-          host: sarutiwaskar.myddns.me  # Your server's hostname or IP address
-          username: ubuntu  # The SSH user, typically "ubuntu" for EC2 instances
-          key: ${{ secrets.EC2_SSH_KEY }}  # Secret key stored in GitHub secrets
+          host: sarutiwaskar.myddns.me
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /var/www/html  # Navigate to the project directory
-            git pull origin main  # Pull the latest code from the main branch
-            sudo chown -R www-data:www-data /var/www/html  # Set proper ownership
-            sudo systemctl reload nginx  # Reload Nginx to apply changes
+            cd /var/www/html
+            git pull origin main
+            sudo chown -R www-data:www-data /var/www/html
+            sudo systemctl reload nginx
+        env:
+          GIT_SSH_COMMAND: "ssh -vvv"  # Enable detailed SSH debugging
+
 
